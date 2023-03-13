@@ -1,0 +1,36 @@
+1. Create project Laravel in console:
+composer create-project laravel/laravel example-app
+
+2. I can go to the project folder and open it from console with "code ." and work with the IDE like VS Code.
+
+2. After for offer security in the project, I should create migrations. In the path database/migrations I can create tables for the DB from console.
+
+3. Then in console I go to the project folder and execute this command to create from console the table model and migration to my DB:
+php artisan make:model Estudiante -m
+php artisan make:model Curso -m
+php artisan make:migration create_curso_estudiante_table
+
+4. Subsequently I set up the model features. With this I can execute the migration from Laravel to my DB:
+php artisan migrate
+
+5. Then generate data fake for examples in the table on the BD.
+php artisan make:factory EstudianteFactory
+php artisan make:factory CursoFactory
+
+I can find the files created on the path of Laravel Database/factories
+
+6. Into the path Database/seeders/DatabaseSeeder.php I can generate the logic for create the types of data randomly.
+php artisan migrate:fresh --seed
+
+7. For test the relation between my backend and the DB I can use tinker.
+php artisan tinker
+
+I make inquiry to check the false data
+> Estudiante::all();
+> Curso::all();
+> $est = Estudiante::find(3);
+> $est->cursos
+
+8. Into the root of my project folder from console, I create my others controllers for the project. Like this:
+php artisan make:controller UserController --api
+php artisan make:controller CursosController --api
